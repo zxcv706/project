@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.foodMapper">
+
+	<!-- 음식 조회(paging) -->
+	<select id="getFoodsByPage" parameterType="hashMap" resultType="com.ssadagoo.project.domain.FoodVO"> 
+		SELECT *  
+		FROM (SELECT ROWNUM,  
+		             m.*,  
+		             FLOOR((ROWNUM - 1) / #{limit} + 1) page  
+		      FROM (
+		             SELECT * FROM food_tbl 
+		             ORDER BY food_id ASC
+		           ) m  
+		      )  
+		WHERE page = #{page}
+	</select>
+	
+	<!--카테고리별 음식 조회(paging) -->
+	<select id="getFoodsByCatePage" parameterType="hashMap" resultType="com.ssadagoo.project.domain.FoodVO"> 
+		SELECT *  
+		FROM (SELECT ROWNUM,  
+		             m.*,  
+		             FLOOR((ROWNUM - 1) / #{limit} + 1) page  
+		      FROM (
+		             SELECT * FROM food_tbl 
+		             WHERE food_cate=#{foodCate}
+		             ORDER BY food_id ASC
+		           ) m  
+		      )  
+		WHERE page = #{page}
+	</select>
+</mapper>

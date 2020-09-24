@@ -1,0 +1,199 @@
+@charset "UTF-8";
+
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+body {
+	margin: 0;
+}
+
+.dropdown-toggle {
+	color: #D3D3D3;
+	margin: 5px;
+}
+
+.card-title {
+	text-align: center;
+}
+
+h5 {
+	color: #FFA500;
+	font-family: 'Jeju Gothic', sans-serif;
+}
+
+.navbar-brand {
+	font-style: italic;
+	letter-spacing: 2px;
+}
+
+.dropdown {
+	padding-top: 7px;
+	padding-bottom: 10px;
+}
+
+.div container {
+	margin-bottom: 30px;
+}
+
+.col-lg-3 {
+	-ms-flex: 0 0 16.666667%;
+	flex: 0 0 16.666667%;
+	max-width: 80%;
+	float: right;
+	margin-top: 25px;
+}
+
+.wrap {
+	position: absolute;
+	left: 0;
+	bottom: 40px;
+	width: 150px;
+	height: 150px;
+	margin-left: -144px;
+	text-align: left;
+	overflow: hidden;
+	font-size: 12px;
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	line-height: 1.5;
+}
+
+.wrap * {
+	padding: 0;
+	margin: 0;
+}
+
+.wrap .info {
+	width: 150px;
+	height: 130px;
+	border-radius: 0px;
+	border-bottom: 2px solid #ccc;
+	border-right: 1px solid #ccc;
+	overflow: hidden;
+	background: #fff;
+}
+
+.wrap .info:nth-child(1) {
+	border: 0;
+	box-shadow: 0px 1px 2px #888;
+}
+
+.info .title {
+	padding: 5px 0 0 10px;
+	height: 30px;
+	background: #eee;
+	border-bottom: 1px solid #ddd;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.info .close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: #888;
+	width: 17px;
+	height: 17px;
+	background:
+		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/overlay_close.png');
+}
+
+.info .close:hover {
+	cursor: pointer;
+}
+
+.info .body {
+	position: relative;
+	overflow: hidden;
+}
+
+.info .desc {
+	float:left;
+	width:50px;
+	height:75px;
+	margin:10px 10px 0px 0;
+}
+
+.desc .ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+.info .img {
+	float:left;
+	margin:10px 5px 10px 10px;
+	width:75px;
+	height:75px;
+}
+
+.info:after {
+	content: '';
+	position: absolute;
+	margin-left: 50px;
+	left: 75px;
+	bottom: 8px;
+	width: 22px;
+	height: 12px;
+	background:
+		url('http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+}
+
+.info .link {
+	color: #5085BB;
+}
+
+.store_detail_btn {
+	width:50px;
+	height:70px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+
+.mart_content_box {
+	line-height:1.5em;
+}
+
+.mart_content_inner_box {
+	float:left;
+	margin:5px;
+	font-size:10pt;
+}
+
+.mart_box_over_flow {
+	width:170px; 
+	height:75px;
+	text-overflow:ellipsis;
+    white-space:wrap;
+    line-height:1.5em;
+}
+
+/***********************************************/
+
+/* 전체 레이아웃 */
+div#map_wrap {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+/* 지도 영역 */
+div#map {
+	width: 600px;
+	height: 100vh;
+}
+
+/* 마트 리스트 */
+div#mart_list {
+	width: 300px;
+	height: 100vh;
+	overflow-y:auto;
+	/* background-color: cyan; */
+}
+
+/* 마트 상세 현황 */
+div#mart_detail {
+	width: calc(100% - 900px);
+	height: 100vh;
+	/* background-color: orange; */
+}

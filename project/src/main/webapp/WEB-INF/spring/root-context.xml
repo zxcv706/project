@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+	
+	<!-- DBCP -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp2.BasicDataSource"
+		destroy-method="close" 
+		p:driverClassName="oracle.jdbc.OracleDriver"
+		p:url="jdbc:oracle:thin:@localhost:1521:xe" 
+		p:username="project"
+		p:password="project" 
+		p:maxTotal="10" 
+		p:maxIdle="5" 
+		p:maxWaitMillis="-1" />
+
+	<!-- myBatis -->
+	<bean id="sqlSessionFactory"
+		  class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="typeAliasesPackage" value="com.ssadagoo.project.domain" />
+		<property name="mapperLocations" value="classpath:/mapper/*.xml" />
+		<!-- myBatis 외부 설정 파일 -->	
+		<!-- <property name="configLocation" value="classpath:/config/mybatis-config.xml" /> -->
+		<property name="configuration">
+			<bean class="org.apache.ibatis.session.Configuration">
+				<property name="mapUnderscoreToCamelCase" value="true" />
+			</bean>
+		</property>
+		
+		<!-- MyBatis date format 문제 해결 -->
+		 <property name="typeHandlersPackage" value="com.ssadagoo.project.util" /> 
+	</bean>
+
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>		
+	
+	<!-- MyBatis -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+         <property name="dataSource" ref="dataSource" />
+    </bean>
+     
+    <!-- <tx:jta-transaction-manager /> -->
+    
+    <!-- @Transactional -->
+   	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<context:annotation-config />
+    
+    <context:component-scan base-package="com.ssadagoo.project.aop" />
+    
+    <!-- AOP ready -->
+    <aop:aspectj-autoproxy />
+    
+    <bean id="transactionTemplate"
+          class="org.springframework.transaction.support.TransactionTemplate"
+          p:transactionManager-ref="transactionManager" />
+			
+</beans>

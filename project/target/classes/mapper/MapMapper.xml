@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.MapMapper">
+
+	<!-- 전체 점포 현황 조회 -->
+	<select id="getAllStores" resultType="StoreVO">
+		select * from store_tbl
+	</select>
+
+	<!-- 전체 상품 조회 -->
+	<select id="getAllProducts" resultType="ProductVO">
+		select * from product_tbl
+	</select>
+
+	<!-- 전체 점포 상품 현황 조회 -->
+	<select id="getAllProductsByStores" resultType="StoreDTO">
+		select
+			s.store_name as store_name,
+			s.latitude as latitude,
+			s.longitude as longitude,
+			s.store_address1 as store_address1,
+			s.store_address2 as store_address2,
+			p.product_id as product_id,
+			p.product_name as product_name,
+			p.product_origin as product_origin,
+			p.product_price as product_price,
+			p.product_quantity as product_quantity,
+			p.product_quantity_unit as product_quantity_unit
+		from store_tbl s, product_tbl p
+		where s.store_name = p.store_name
+		order by s.store_name
+	</select>
+	
+	<!-- 특정 점포 상품 현황 조회 -->
+	<select id = "getProductsByStoreName" parameterType="String" resultType="ProductVO">
+		select * from product_tbl
+		where store_name = #{storename}
+	</select>
+
+</mapper>

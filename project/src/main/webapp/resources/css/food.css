@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/*전체 레이아웃*/
+#Recipe1_wrap {
+	width: 1650px;
+	/*background-color: beige;*/
+}
+
+/* 상단부 */
+#Recipe1_header {
+	width:100%;
+	height:100px;
+}
+
+/* 로고(홈) */
+#ssadagoo_logo {
+	width:250px;
+	height: 100px;
+	float:left;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5em;
+}
+
+a#ssadagoo_logo:link {
+	text-decoration: none;
+	color:#000;
+}
+
+/*카테고리 이름*/
+#Recipe1_categoryname {
+	float:left;
+	width: 250px;
+	height: 100px;
+	/* 중앙정렬 */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2.5em;
+}
+
+#Recipe1_search {
+	width: calc(100% - 500px);
+	float:left;
+/* 	background-color: indianred; */
+	height: 100px;
+}
+
+#Search_panel {
+/* 	background-color: indigo; */
+	height: 70px;
+	padding-top: 30px;
+	float:left;
+}
+
+/*컨텐츠 섹션*/
+#Content_wrap {
+	width: 100%;
+	height: 700px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	/*background-color:yellow;*/
+}
+
+/*전체 음식 섹션*/
+#Recipe1_center {
+	/*background-color: green;*/
+	height: 700px;
+	width: 1290px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px 15px;
+	overflow: hidden;
+}
+
+/*개별 음식 섹션*/
+#Recipe1_center_menu {
+	/*background-color: aqua;*/
+	height: 200px;
+	width: 400px;
+	margin: 15px 10px;
+	border: 1px solid #ccc;
+}
+
+/*음식 이미지*/
+[id^=Recipe1_center_menu_img] {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	float: left;
+}
+
+/*음식 상세 설명*/
+[id^=Recipe1_center_menu_detail] {
+	height: 180px;
+	width: 180px;
+	/*background-color: hotpink;*/
+	text-overflow: ellipsis;
+	font-size: 10pt;
+	padding: 10px;
+	overflow: hidden;
+	float: left;
+}

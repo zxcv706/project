@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+     <!--구글 머티리얼-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--부트스트랩-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        /*전체 레이아웃*/
+        #Recipe1_wrap {
+            width: 1650px;
+            /*background-color: beige;*/
+        }
+
+        /*카테고리 이름*/
+        #Recipe1_categoryname {
+            /*background-color: gray;*/
+            width: 250px;
+            height: 100px;
+            float: left;
+            /* 중앙정렬 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+        }
+
+        #Recipe1_search {
+            /*background-color: indianred;*/
+            height: 100px;
+            width: calc(100% - 250px);
+            float: left;
+        }
+
+        #Search_panel {
+            /*background-color: indigo;*/
+            height: 70px;
+            padding-top: 30px;
+        }
+
+        /*컨텐츠 섹션*/
+        #Content_wrap {
+            width: 100%;
+            height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /*background-color:yellow;*/
+        }
+
+        /*전체 음식 섹션*/
+        #Recipe1_center {
+            /*background-color: green;*/
+            height: 700px;
+            width: 1290px;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 15px;
+            overflow: hidden;
+
+        }
+
+        /*개별 음식 섹션*/
+        #Recipe1_center_menu {
+            /*background-color: aqua;*/
+            height: 200px;
+            width: 400px;
+            margin: 15px 10px;
+            border: 1px solid #ccc;
+        }
+
+        /*음식 이미지*/
+        [id^=Recipe1_center_menu_img] {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        /*음식 상세 설명*/
+        [id^=Recipe1_center_menu_detail] {
+            height: 180px;
+            width: 180px;
+            /*background-color: hotpink;*/
+            text-overflow: ellipsis;
+            font-size: 10pt;
+            padding: 10px;
+            overflow: hidden;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 전체 레이아웃 -->
+    <div id="Recipe1_wrap">
+        <!-- 상단부:카테고리명,레시피 검색 -->
+        <div id="Recipe1_header">
+
+            <!-- 카테고리명 -->
+            <div id="Recipe1_categoryname">한식</div>
+
+            <!--레시피 검색 -->
+            <div id="Recipe1_search">
+                <div id="Search_panel">
+                    <form class="form-inline" action="search.do">
+                        <span class="material-icons" style="color:gray; font-size:30pt">
+                            search
+                        </span>
+                        <input type="text" style="width: 250px; height:40px;" class="form-control ml-2 mr-2"
+                            placeholder="검색어를 입력하세요." id="search_word">
+                        <button type="submit" style="width:80px; height:40px;" class="btn btn-primary">검색</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 중단부:레시피 이미지 텍스트 모음 -->
+        <div id="Content_wrap">
+            <div id="Recipe1_center">
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img1">
+                        <a href="https://www.youtube.com/watch?v=apJxyK-Xz5k">
+                            <img src="2간장닭조림.jpg" />
+                        </a>
+                    </div>
+                    <div id="Recipe1_center_menu_detail1">
+                        짭조름한 간장과 닭의 콜라보레이션
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img2">
+                        <a href="https://www.youtube.com/watch?v=PjMWHZ3ubsQ">
+                            <img src="2갈비찜.jpg" />
+                        </a>
+                    </div>
+                    <div id="Recipe1_center_menu_detail2">
+                        사랑받는 사위를 위한 장모님의 정성듬뿍 음식!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img3">
+                        <a href="https://www.youtube.com/watch?v=Qrl0u3jVwE0">
+                            <img src="2고구마맛탕.jpg" />
+                        </a>
+                    </div>
+                    <div id="Recipe1_center_menu_detail3">
+                        달콤하고 부드러운 영양만점 고구마간식!!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img4">
+                        <a href="https://www.youtube.com/watch?v=tgrYkoNUhS4">
+                            <img src="2굴떡국.jpg" />
+                        </a>
+                    </div>
+                    <div id="Recipe1_center_menu_detail4">
+                        새해가되면 만들어먹는 스페셜한 떡국!!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img5">
+                        <a href="https://www.youtube.com/watch?v=UB9TRkkUjaY">
+                            <img src="2궁중떡볶이.jpg" />
+                        </a>
+                    </div>
+                    <div id="Recipe1_center_menu_detail5">
+                        임금님도 반했다! 고오급떡볶이
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img6">
+                        <a href="https://www.youtube.com/watch?v=10fl2mebYHs">
+                    <img src="2김밥.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail6">
+                        소풍하면 떠오르는 음식의 대명사
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img7">
+                        <a href="https://www.youtube.com/watch?v=DnQ09ZZCjCs">
+                    <img src="2김치찌개.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail7">
+                        비오는날 소주한잔과 함께하면 끝장!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img8">
+                        <a href="https://www.youtube.com/watch?v=GKPoSTwxAMk">
+                    <img src="2두부간장조림.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail8">
+                        고소한 두부를 한층 업그레이드시킨다!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img9">
+                        <a href="https://www.youtube.com/watch?v=At-u3lwsFtk">
+                    <img src="2만두국.jpg" />
+                    </a>
+                </div>
+
+                    <div id="Recipe1_center_menu_detail9">
+                        제대앞둔 말년병장도 벌떡 !
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img10">
+                        <a href="https://www.youtube.com/watch?v=m_YtvvzSwz0">
+                    <img src="2메밀전병.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail10">
+                        시장가면 꼭 먹어야하는 베스트오브베스트
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img11">
+                        <a href="https://www.youtube.com/watch?v=7dB3makavQA">
+                    <img src="2모듬전.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail11">
+                        막걸리와 단짝친구 술한병 홀딱
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img12">
+                        <a href="https://www.youtube.com/watch?v=OG1GL4tXgMQ">
+                    <img src="2배숙.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail12">
+                        달달한 감기몸살 자연치료제!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img13">
+                        <a href="https://www.youtube.com/watch?v=r0MDWz3E9hc">
+                    <img src="2버터계란밥.jpg" />
+                    </a>
+                    </div>
+                    <div id="Recipe1_center_menu_detail13">
+                        초스피드 간단 식사
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img14">
+                        <a href="https://www.youtube.com/watch?v=Zy3gXkBqi-0">
+                    <img src="2부대찌개.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail14">
+                        햄요리의 끝판왕 밥세공기뚝딱!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img15">
+                        <a href="https://www.youtube.com/watch?v=NvoCWyO0Vfg">
+                    <img src="2비빔라면.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail15">
+                        더운 여름날 매콤새콤한 비빔라면 후루룩
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img16">
+                        <a href="https://www.youtube.com/watch?v=unMfVm5gtyw">
+                    <img src="2소고기장조림.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail16">
+                        뜨끈한 밥에 쓱싹 최고의반찬
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img17">
+                        <a href="https://www.youtube.com/watch?v=p3IQTouKyH0">
+                    <img src="2소불고기.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail17">
+                        온가족이 함께 즐거운식사의 지름길
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img18">
+                        <a href="https://www.youtube.com/watch?v=QJAn9Q4XpOA">
+                    <img src="2순두부계란국.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail18">
+                        씹지않고 식도로 바로 토스!!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img19">
+                        <a href="https://www.youtube.com/watch?v=nj-DjQFEZb0">
+                    <img src="2순두부찌개.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail19">
+                        칼칼한 국물이 위장을 가격한다!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img20">
+                        <a href="https://www.youtube.com/watch?v=yjGhA7idCpI">
+                    <img src="2어묵국.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail20">
+                        어묵에서 나온 육수가 시너지효과를!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img21">
+                        <a href="https://www.youtube.com/watch?v=vSITeU3EH6g">
+                    <img src="2얼큰수제비.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail21">
+                        김치 한점 올려서 후루룩!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img22">
+                        <a href="https://www.youtube.com/watch?v=H4pYFtWMHz4">
+                    <img src="2오징어볶음.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail22">
+                        바다속 오징어가 내혓속에서 꿈틀!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img23">
+                        <a href="https://www.youtube.com/watch?v=N0EUAo2X2d0">
+                    <img src="2육개장.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail23">
+                        호불호 안갈리는 뜨끈한 국물
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img24">
+                        <a href="https://www.youtube.com/watch?v=DNj3YiaP42s">
+                    <img src="2잡채.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail24">
+                        생일날 잔치상에 대표주자
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img25">
+                        <a href="https://www.youtube.com/watch?v=j9v_2oAKQsw">
+                    <img src="2짜파구리.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail25">
+                        기생충 흥행 일등공신!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img26">
+                        <a href="https://www.youtube.com/watch?v=3pqiMLB6-yc">
+                    <img src="2치즈계란말이.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail26">
+                        치즈와 계란이라는 깡패조합!
+                    </div>
+                </div>
+
+                <div id="Recipe1_center_menu">
+                    <div id="Recipe1_center_menu_img27">
+                        <a href="https://www.youtube.com/watch?v=oyCxicLybpM">
+                    <img src="2팥죽.jpg" />
+                    </a>
+                </div>
+                    <div id="Recipe1_center_menu_detail27">
+                        귀신은 물럿거라! 전통있는 우리음식
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 하단부:슬라이드 -->
+        <div id="Recipe_pagination">
+            <div class="container w-100 mx-auto">
+                <ul class="pagination justify-content-center" style="margin:20px 0">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </div>
+
+</body>
+
+</html>
